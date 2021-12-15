@@ -16,18 +16,19 @@ const PAPER = "paper";
 const SCISSORS = "scissors";
 const draw = "draw";
 var rpsObj = {
-  Rock: {
-    beats: "Scissors"
+  [ROCK]: {
+    beats: SCISSORS
   },
-  Paper: {
-    beats: "Rock"
+  [PAPER]: {
+    beats: ROCK
   },
-  Scissors: {
-    beats: "Paper"
+  [SCISSORS]: {
+    beats: PAPER
   }
 };
 const PLAYER_A_WON = "Player a won";
 const PLAYER_B_WON = "Player b won";
+
 const playTikTakPaperScissors = (playerA, playerB) => {
   let result;
   if (playerA === playerB) {
@@ -43,9 +44,9 @@ const playTikTakPaperScissors = (playerA, playerB) => {
   return result;
 };
 
-const result1 = playTikTakPaperScissors("Rock", "Rock");
+const result1 = playTikTakPaperScissors(ROCK, ROCK);
 assert(result1 === draw);
-const result2 = playTikTakPaperScissors("Rock", "Scissors");
+const result2 = playTikTakPaperScissors(ROCK, SCISSORS);
 assert(result2 === PLAYER_A_WON);
-const result3 = playTikTakPaperScissors("Rock", "Paper");
+const result3 = playTikTakPaperScissors(ROCK, PAPER);
 assert(result3 === PLAYER_B_WON);
